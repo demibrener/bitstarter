@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
-var fs = require('fs');
-var buf = new Buffer('utf-8')
+var fs = require('fs')
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
@@ -15,10 +14,7 @@ app.get('/archivo', function(req, res){
   console.log(data);
 });
 
-app.get('/archivo', function(requ, res){
- var buf = buf.toString('utf-8');
- console.log(buf);
-});
+var buff = new Buffer(5);buff = fs.readFileSync('index.html');var string1 = buff.toString();console.log(string1 + "\n");
  
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
